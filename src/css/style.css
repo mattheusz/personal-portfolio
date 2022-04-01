@@ -1,0 +1,225 @@
+@import url(variables.css);
+
+/* starts header */
+.header{
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    align-self: center;
+    justify-self: center;
+    font-size: var(--h4);
+    font-family: var(--logo-font);
+    color: var(--light);
+    margin-left: 20px;
+}
+
+.menu{
+    position: fixed;
+    top: 80px;
+    height: calc(100vh - 80px);
+    left: -100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary);
+    color: var(--light);
+    width: 100%;
+    transition: 0.5s;
+}
+
+.show-menu{
+    left: 0;
+}
+
+.menu__item {
+    text-decoration: none;
+    color: var(--light);
+    font-family: var(--body-font);
+    font-size: var(--body-1);
+    justify-self: center;
+    align-self: center;
+    padding: 25px 10px;
+    letter-spacing: .5px;
+}
+
+.menu__item--button {
+    background-color: var(--accent);
+    color: var(--primary);
+    height: auto;
+    padding: 1rem 2rem;
+    margin-top: 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    box-shadow: 1px 1px 1px var(--accent);
+}
+
+.header__hamburger{
+    font-size: 40px;
+    color: var(--light);
+    align-self: center;
+    justify-self: center;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* starts typografy */
+.h1 {
+    font-size: var(--h1);
+    font-family: var(--title);
+}
+
+.h2 {
+    font-size: var(--h2);
+    font-family: var(--title);
+}
+
+.h3 {
+    font-size: var(--h3);
+    font-family: var(--title);
+}
+
+.h4 {
+    font-size: var(--h4);
+    font-family: var(--title);
+    color: var(--secondary);
+}
+
+.p {
+    font-size: var(--body-1);
+    font-family: var(--body-font);
+    font-weight: var(--medium);
+    letter-spacing: .6px;
+    line-height: var(--body-line-height);
+    margin-top: calc(var(--body-1) * 1.25);
+}
+
+/* starts main */
+.main{
+    margin-top: 80px;
+    height: calc(100vh - 80px);
+    background-color: var(--primary);
+    color: var(--light)
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 80px);
+    padding: 20px;
+}
+
+.hello{
+    font-family: var(--mono-font);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.big-heading {
+    font-size: 64px;
+    font-family: var(--display-font);
+    color: var(--regular-color);
+    margin-bottom: 1rem;
+}
+
+.big-heading--light {
+    font-size: 34px;
+    color: var(--light);
+}
+
+.banner__button {
+    padding: 15px 0;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    background-color: var(--accent);
+    color: var(--primary);
+    font-weight: var(--regular);
+    font-family: var(--body-font);
+    margin-top: 3rem;
+    letter-spacing: .5px;
+    border-radius: 1px 1px 1px var(--accent);
+    border-radius: 5px;
+    font-size: var(--p);
+}
+
+/* starts ABOUT */
+.about {
+    background-color: var(--primary);
+    padding: 20px;
+}
+
+.about__tech-list {
+    padding-left: 20px;
+    margin-top: 8px;
+    font-size: var(--body-2);
+}
+
+.tech-list__item {
+    list-style-type: none;
+}
+
+.tech-list__item::before {
+    content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: var(--accent); /* Change the color */
+    font-weight: bold; /* If you want it to be bold */
+    display: inline-block; /* Needed to add space between the bullet and the text */
+    width: 1em; /* Also needed for space (tweak if needed) */
+    margin-left: -1em; /* Also needed for space (tweak if needed) */
+  }
+
+  .projects {
+    background-color: var(--primary);
+    padding: 20px;
+  }
+
+  .project-card {
+      background-color: var(--secondary);
+      border: .1px solid var(--primary);
+      color: var(--primary);
+      border-radius: 5px;
+      margin-top: 2rem;
+  }
+
+  .project-card__title {
+      font-size: var(--h5);
+      font-family: var(--body-font);
+      font-weight: 700;
+      text-align: center;
+      padding: 15px;
+  }
+
+  .project-card__body {
+    font-size: var(--p);
+    font-family: var(--body-font);
+    padding: 0 15px 15px 15px;
+}
+
+.project-card__body--techs{
+    margin-top: 20px;
+}
+
+.project-card__footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.project-card__icon {
+    font-size: 30px;
+    align-self: center;
+    justify-self: center;
+}
+
+.project-card__icon:nth-child(2){
+    margin-left: 1rem;
+    justify-self: center;
+}
