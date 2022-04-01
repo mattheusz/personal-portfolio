@@ -2,7 +2,6 @@
   "name": "personal-portfolio",
   "version": "1.0.0",
   "description": "My personal portfolio with information about me. In it, you can find information about my projects, experiences, education and ways to contact me.",
-  "main": "src/index.html",
   "repository": "https://github.com/mattheusz/personal-portfolio.git",
   "author": "Matheus Justino <matheussjusttino@gmail.com>",
   "license": "MIT",
