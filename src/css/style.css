@@ -198,13 +198,15 @@
   }
 
   .project-card__body {
-    font-size: var(--p);
+    font-size: var(--body-1);
     font-family: var(--body-font);
     padding: 0 15px 15px 15px;
 }
 
 .project-card__body--techs{
     margin-top: 20px;
+    font-family: var(--mono-font);
+    font-size: var(--body-2);
 }
 
 .project-card__footer {
