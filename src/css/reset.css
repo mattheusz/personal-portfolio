@@ -1,5 +1,6 @@
 @import url(variables.css);
-*, 
+
+*,
 *:after,
 *:before {
     margin: 0;
@@ -7,15 +8,17 @@
     box-sizing: border-box;
     text-decoration: none;
 }
-body{
+
+body {
     font-size: 100%;
     list-style-type: none;
     font-family: var(--body-font);
+    background-color: var(--primary);
 }
 
 html {
-    scroll-behavior: smooth;  
-  }
+    scroll-behavior: smooth;
+}
 
 a {
     text-decoration: none;
