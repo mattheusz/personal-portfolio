@@ -366,6 +366,7 @@
     border-radius: 5px;
     font-weight: var(--regular);
     font-family: var(--body-font);
+    cursor: pointer
 }
 
 /* ends contact */
