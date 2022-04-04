@@ -351,6 +351,7 @@
     padding: 8px;
     resize: none;
     border: none;
+    outline: none;
     box-shadow: 2px 2px 2px var(--primary);
 }
 
