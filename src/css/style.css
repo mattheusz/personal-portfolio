@@ -58,6 +58,13 @@
     border-radius: 5px;
     font-weight: 700;
     box-shadow: 1px 1px 1px var(--accent);
+    transition: background-color .5s;
+    justify-self: center;
+    display: inline-block;
+}
+
+.menu__item--button:hover {
+    background-color: var(--tint-accent);
 }
 
 .header__hamburger {
@@ -150,6 +157,11 @@
     box-shadow: 1px 1px 1px var(--accent);
     border-radius: 5px;
     font-size: var(--p);
+    transition: background-color .5s;
+}
+
+.banner__button:hover {
+    background-color: var(--tint-accent);
 }
 
 /* starts ABOUT */
@@ -194,6 +206,9 @@
     color: var(--primary);
     border-radius: 5px;
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .project-card__title {
@@ -208,6 +223,10 @@
     font-size: var(--body-1);
     font-family: var(--body-font);
     padding: 0 15px 16px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
 .project-card__body--techs {
@@ -220,6 +239,7 @@
     display: flex;
     justify-content: center;
     padding-bottom: 16px;
+    flex-basis: 50px;
 }
 
 .project-card__link {
@@ -235,6 +255,12 @@
     align-self: center;
     justify-self: center;
     cursor: pointer;
+    transition: color .5s;
+
+}
+
+.project-card__icon:hover {
+    color: var(--tint-primary);
 }
 
 
@@ -366,7 +392,159 @@
     border-radius: 5px;
     font-weight: var(--regular);
     font-family: var(--body-font);
-    cursor: pointer
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+.button:hover {
+    background-color: var(--tint-accent);
 }
 
 /* ends contact */
+
+/* starts footer */
+.footer {
+    padding: 32px 16px;
+}
+
+.social-media-box {
+    padding: 0 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.social-media-box__link {
+    color: var(--accent);
+}
+
+.social-media-box__link:nth-child(2) {
+    margin-left: 16px;
+}
+
+.social-media-box__link:nth-child(3) {
+    margin-left: 16px;
+}
+
+.social-media-box__icon {
+    font-size: 30px;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+    transition: color .5s;
+}
+
+.social-media-box__icon:hover {
+    color: var(--tint-accent);
+}
+
+
+.credit-box {
+    margin-top: 32px;
+    font-family: var(--mono-font);
+    font-size: var(--body-2);
+    text-align: center;
+    color: var(--secondary)
+}
+
+/* ends footer */
+
+@media only screen and (min-width:320px) {
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+
+@media only screen and (min-width:480px) {
+    /* smartphones, Android phones, landscape iPhone */
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    .banner,
+    .about,
+    .projects,
+    .jobs,
+    .academic,
+    .contact,
+    .footer {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .h2 {
+        font-size: var(--h2);
+    }
+
+    .banner,
+    .about,
+    .projects,
+    .jobs,
+    .academic,
+    .contact,
+    .footer {
+        width: 85%;
+    }
+
+    .project-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        justify-content: space-around;
+        margin-top: 32px;
+    }
+
+    .project-card {
+        margin-top: 0;
+    }
+
+
+
+    .big-heading--light {
+        font-size: 34px;
+        color: var(--light);
+    }
+
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    .banner {
+        width: 80%;
+    }
+
+    .big-heading {
+        font-size: 66px;
+    }
+
+    .banner,
+    .about,
+    .projects,
+    .jobs,
+    .academic,
+    .contact,
+    .footer {
+        width: 80%;
+    }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .project-list {}
+
+    .banner,
+    .about,
+    .projects,
+    .jobs,
+    .academic,
+    .contact,
+    .footer {
+        width: 80%;
+        max-width: 740px;
+    }
+}

@@ -3,15 +3,19 @@
     /* COLORS */
     /* primary colors */
     --primary: #0c2c41;
-    --shade-primary: #0c2c41;
+    --tint-primary: #3d5667;
+    --shade-primary: #0b1f3e;
+
     --secondary: #e5f5ff;
+
     --accent: #b3e0ff;
+    --tint-accent: #cae9ff;
 
     /* neutral colors */
     --regular-color: #b3e0ff;
     --medium-color: #f5fbff;
     --light: #f5fbff;
-    
+
     --dark: #0d0d0d;
 
     /* semantic colors */
@@ -22,8 +26,8 @@
     /* TYPOGRAPHY */
 
     /* font family */
-    
-    --title-font:  'Lato', sans-serif;
+
+    --title-font: 'Lato', sans-serif;
     --body-font: 'Poppins', sans-serif;
     --logo-font: 'Lobster', cursive;
     --mono-font: 'Roboto Mono', monospace;
@@ -59,5 +63,5 @@
     /* Sombras */
     --shadow-input: 1px 1px 2px var(--gray);
     --shadow-card: 2px 2px 2px var(--gray);
-                                                
+
 }
