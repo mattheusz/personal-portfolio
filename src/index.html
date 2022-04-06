@@ -241,19 +241,24 @@
             <section class="contact">
                 <h2 class="h5">Entre em contato comigo</h2>
                 <p class="p">Estou aberto a novas oportunidades. Sinta-se a vontade para entrar em contato.</p>
-                <div class="input-group">
-                    <label for="name" class="input-group__input-label">Nome</label>
-                    <input id="name" type="text" class="input-group__text-input">
-                </div>
-                <div class="input-group">
-                    <label for="email" class="input-group__input-label">E-mail</label>
-                    <input id="email" type="text" class="input-group__text-input">
-                </div>
-                <div class="input-group">
-                    <label for="message" class="input-group__input-label">Mensagem</label>
-                    <textarea id="message" class="input-group__textarea" rows="5"> </textarea>
-                </div>
-                <input type="button" class="button" value="Enviar mensagem">
+                <form id="contact-form" action="">
+                    <div class="input-group">
+                        <label for="name" class="input-group__input-label">Nome</label>
+                        <input id="name" type="text" class="input-group__text-input">
+                        <span id="name-error-message" class="input-group__name-error-message"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="email" class="input-group__input-label">E-mail</label>
+                        <input id="email" type="text" class="input-group__text-input">
+                        <span id="email-error-message" class="input-group__email-error-message"></span>
+                    </div>
+                    <div class="input-group">
+                        <label for="message" class="input-group__input-label">Mensagem</label>
+                        <textarea id="message" class="input-group__textarea" rows="5"> </textarea>
+                        <span id="message-box-error-message" class="input-group__message-box-error-message"></span>
+                    </div>
+                    <input id="form-submit-button" type="submit" class="button" value="Enviar mensagem">
+                </form>
 
             </section>
             <footer class="footer">

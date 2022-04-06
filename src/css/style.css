@@ -366,6 +366,12 @@
     outline: none;
     border: none;
     box-shadow: 2px 2px 2px var(--primary);
+    display: block;
+}
+
+.input-group span {
+    display: block;
+    color: var(--light-error)
 }
 
 .input-group__textarea {
