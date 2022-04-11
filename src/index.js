@@ -11,11 +11,14 @@ let isValid = {
     message: false
 }
 
+let triedToSubmit = false;
+
 hamburgerButton.addEventListener("click", () => showMenu(menu));
-contactName.addEventListener("input", (e) => checkIfNameIsValid(e.target.value));
-email.addEventListener("input", (e) => checkIfEmailIsValid(e.target.value));
+contactName.addEventListener("focusout", (e) => checkIfNameIsValid(e.target.value));
+email.addEventListener("focusout", (e) => checkIfEmailIsValid(e.target.value));
+message.addEventListener("focusout", (e) => checkIfMessageIsValid(e.target.value));
 message.addEventListener("input", (e) => checkIfMessageIsValid(e.target.value));
-contactForm.addEventListener("submit", (e) => submitForm(e, isValid));
+contactForm.addEventListener("submit", (e) => submitForm(e, contactName, email, message));
 
 function showMenu(menu) {
     console.log(menu)
@@ -46,7 +49,7 @@ function checkIfNameIsValid(name) {
 }
 
 function checkIfEmailIsValid(email) {
-    console.log("email", email)
+    console.log('email:', email || 'email')
     const regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
     let emailErrorMessage = document.getElementById("email-error-message");
     if (email.length === 0) {
@@ -84,16 +87,30 @@ function checkIfMessageIsValid(message) {
     return true;
 }
 
-function submitForm(e, isValid) {
+function submitForm(e, name, email, message) {
     console.log("Podemos submeter?");
-    console.log(isValid)
+
     e.preventDefault();
-    /*
-    if (isValid.name)  
-    
+    message.removeEventListener("focusout", (e) => checkIfMessageIsValid(e.target.value));
 
-    if(isValid.email)
+    if (checkIfNameIsValid(name.value)) {
+        isValid.name = true;
+    }
+    if (checkIfEmailIsValid(email.value)) {
+        isValid.email = true;
+    }
+    if (checkIfMessageIsValid(message.value)) {
+        isValid.message = true;
+    }
 
-    if(isValid.message)
-    */
+    console.log('name', name.value, 'email', email.value)
+    if (isValid.name && isValid.email && isValid.message) {
+        console.debug("call API");
+    }
+    else {
+        checkIfNameIsValid(name.value);
+        checkIfEmailIsValid(email.value);
+        checkIfMessageIsValid(message.value);
+    }
+
 }

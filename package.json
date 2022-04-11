@@ -6,12 +6,12 @@
   "author": "Matheus Justino <matheussjusttino@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "parcel": "^2.4.0"
+    "parcel": "^2.4.1"
   },
   "source": "src/index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --no-cache",
     "build": "parcel build"
   }
 }
