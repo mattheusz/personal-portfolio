@@ -1,6 +1,7 @@
 "strict mode"
 const hamburgerButton = document.querySelector(".header__hamburger");
 const menu = document.querySelector('.menu');
+const menuItem = document.querySelectorAll('.menu__item');
 const contactName = document.getElementById('name');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
@@ -14,6 +15,9 @@ let isValid = {
 let triedToSubmit = false;
 
 hamburgerButton.addEventListener("click", () => showMenu(menu));
+menuItem.forEach(item => {
+    item.addEventListener("click", () => showMenu(menu));
+})
 contactName.addEventListener("focusout", (e) => checkIfNameIsValid(e.target.value));
 email.addEventListener("focusout", (e) => checkIfEmailIsValid(e.target.value));
 message.addEventListener("focusout", (e) => checkIfMessageIsValid(e.target.value));
@@ -28,6 +32,8 @@ function showMenu(menu) {
         menu.classList.add("show-menu");
     }
 }
+
+
 
 function checkIfNameIsValid(name) {
     let nameRegex = /^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$/;
