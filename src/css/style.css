@@ -537,6 +537,41 @@
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
+    .menu {
+        position: relative;
+        height: auto;
+        top: 0;
+        right: 0;
+        flex-direction: row;
+        background-color: var(--primary);
+        color: var(--light);
+        width: auto;
+        right: 2rem;
+        transition: 0s;
+    }
+
+    .header__logo {
+        margin-left: 2rem;
+    }
+
+    .menu__item--button {
+        background-color: var(--accent);
+        color: var(--primary);
+        height: auto;
+        padding: .5rem 1rem;
+        margin-top: 0;
+        margin-left: 1rem;
+        border-radius: 5px;
+        font-weight: 700;
+        box-shadow: 1px 1px 1px var(--accent);
+        transition: background-color .5s;
+        justify-self: center;
+        display: inline-block;
+    }
+
+    .header__hamburger {
+        display: none;
+    }
 
     .banner {
         width: 80%;
