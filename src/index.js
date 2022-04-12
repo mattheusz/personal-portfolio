@@ -1,4 +1,6 @@
 "strict mode"
+import axios from 'axios';
+
 const hamburgerButton = document.querySelector(".header__hamburger");
 const menu = document.querySelector('.menu');
 const menuItem = document.querySelectorAll('.menu__item');
@@ -6,13 +8,13 @@ const contactName = document.getElementById('name');
 const email = document.getElementById('email');
 const message = document.getElementById('message');
 const contactForm = document.getElementById("contact-form");
+const toast = document.getElementById("snackbar");
+
 let isValid = {
     name: false,
     email: false,
     message: false
 }
-
-let triedToSubmit = false;
 
 hamburgerButton.addEventListener("click", () => showMenu(menu));
 menuItem.forEach(item => {
@@ -21,8 +23,7 @@ menuItem.forEach(item => {
 contactName.addEventListener("focusout", (e) => checkIfNameIsValid(e.target.value));
 email.addEventListener("focusout", (e) => checkIfEmailIsValid(e.target.value));
 message.addEventListener("focusout", (e) => checkIfMessageIsValid(e.target.value));
-message.addEventListener("input", (e) => checkIfMessageIsValid(e.target.value));
-contactForm.addEventListener("submit", (e) => submitForm(e, contactName, email, message));
+contactForm.addEventListener("submit", (e) => submitForm(e, isValid, contactName, email, message, axios, toast));
 
 function showMenu(menu) {
     console.log(menu)
@@ -36,7 +37,7 @@ function showMenu(menu) {
 
 
 function checkIfNameIsValid(name) {
-    let nameRegex = /^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,2}$/;
+    let nameRegex = /^[a-zA-Z]{2,}(?: [a-zA-Z]+){0,9}$/;
     let nameErrorMessage = document.getElementById("name-error-message");
     if (name.length === 0) {
         nameErrorMessage.innerHTML = "Não deixe o campo de nome vazio."
@@ -93,11 +94,12 @@ function checkIfMessageIsValid(message) {
     return true;
 }
 
-function submitForm(e, name, email, message) {
+function submitForm(e, isValid, name, email, message, axios, toast) {
     console.log("Podemos submeter?");
 
     e.preventDefault();
     message.removeEventListener("focusout", (e) => checkIfMessageIsValid(e.target.value));
+    message.addEventListener("input", (e) => checkIfMessageIsValid(e.target.value));
 
     if (checkIfNameIsValid(name.value)) {
         isValid.name = true;
@@ -109,9 +111,34 @@ function submitForm(e, name, email, message) {
         isValid.message = true;
     }
 
-    console.log('name', name.value, 'email', email.value)
     if (isValid.name && isValid.email && isValid.message) {
         console.debug("call API");
+
+        axios.post("https://submit-form.com/B2p77Uo0", {
+            "Nome": name.value,
+            "E-mail": email.value,
+            "Mensagem": message.value,
+            _email: {
+                from: name.value,
+                subject: `Matheus, ${name.value} entrou em contato com você pelo seu portfólio.`,
+                template: {
+                    title: false,
+                    footer: false,
+                },
+            },
+        })
+            .then(function (response) {
+                // manipula o sucesso da requisição
+                showToast(toast, "Mensagem enviada com sucesso. Muito obrigado!");
+                cleanInputs(name, email, message);
+                console.log('sucesso na submissão', response);
+            })
+            .catch(function (error) {
+                // manipula erros da requisição
+                showToast(toast, "Problema em conectar ao servidor. Tente novamente.");
+                console.error('error', error);
+            })
+
     }
     else {
         checkIfNameIsValid(name.value);
@@ -119,4 +146,19 @@ function submitForm(e, name, email, message) {
         checkIfMessageIsValid(message.value);
     }
 
+}
+
+function showToast(toast, message) {
+    // Add the "show" class to DIV
+    toast.className = "show";
+    toast.innerHTML = message;
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () { toast.className = toast.className.replace("show", ""); }, 3000);
+}
+
+function cleanInputs(name, email, message) {
+    name.value = "";
+    email.value = "";
+    message.value = "";
 }

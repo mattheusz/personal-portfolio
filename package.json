@@ -6,6 +6,7 @@
   "author": "Matheus Justino <matheussjusttino@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.26.1",
     "parcel": "^2.4.1"
   },
   "source": "src/index.html",
@@ -13,5 +14,8 @@
   "scripts": {
     "start": "parcel --no-cache",
     "build": "parcel build"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
   }
 }
